@@ -1,9 +1,7 @@
 name: Auto Format and Fix
 
 on:
-  push:
-    branches:
-      - '*'
+  workflow_call:
 
 permissions:
   contents: write
