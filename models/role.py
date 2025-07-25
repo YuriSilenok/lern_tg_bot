@@ -1,3 +1,5 @@
+"""Роль"""
+
 from peewee import CharField
 from .table import Table
 

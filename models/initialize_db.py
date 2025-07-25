@@ -1,3 +1,5 @@
+"""Запуститье этот модуль для создания таблиц и данных"""
+
 from models.connect import db
 from models.course import Course
 from models.theme import Theme
@@ -9,6 +11,7 @@ from models.role_permission import RolePermission
 
 
 def initialize_database():
+    """СОздает таблицы и данные"""
     db.connect()
     db.create_tables(
         models=[

@@ -1,9 +1,11 @@
+"""Пользователь"""
+
 from peewee import CharField, IntegerField
 from .table import Table
 
 
 class User(Table):
-    """Ответ"""
+    """Пользователь"""
 
     tg_id = IntegerField()
     username = CharField(null=True)

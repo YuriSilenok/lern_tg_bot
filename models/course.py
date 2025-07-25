@@ -1,9 +1,13 @@
+"""Учебный курс"""
+
 from peewee import CharField, ForeignKeyField
 from .table import Table
 from .user import User
 
 
 class Course(Table):
+    """Учебный курс"""
+
     owner = ForeignKeyField(model=User)
     name = CharField()
 
