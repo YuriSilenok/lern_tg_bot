@@ -8,4 +8,5 @@ class Table(Model):
     """Базовая таблицу"""
 
     class Meta:
+        """Определяем коннект моделям"""
         database = db

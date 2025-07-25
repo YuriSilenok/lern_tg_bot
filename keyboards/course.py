@@ -7,6 +7,7 @@ from models.user import User
 
 
 def get_kb(user_tg_id: int) -> InlineKeyboardMarkup:
+    """Возвращает кнопки для списка курсов"""
 
     user = User.get_or_none(tg_id=user_tg_id)
 

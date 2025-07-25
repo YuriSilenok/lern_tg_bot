@@ -2,12 +2,11 @@
 
 from aiogram import Router, F
 from aiogram.types import Message
-from aiogram.fsm.context import FSMContext
 from aiogram.exceptions import TelegramBadRequest
 
 import keyboards
 from filters.permission import IsPermission
-import keyboards.course
+
 
 router = Router()
 
@@ -16,7 +15,7 @@ router = Router()
     F.text == "Мои курсы",
     IsPermission(permission_name="Мои курсы"),
 )
-async def show_courses_handler(message: Message, state: FSMContext):
+async def show_courses_handler(message: Message):
     """Обработчик сообщения Мои курсы"""
 
     try:
