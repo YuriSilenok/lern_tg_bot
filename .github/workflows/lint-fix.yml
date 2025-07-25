@@ -3,9 +3,6 @@ name: Auto Format and Fix
 on:
   workflow_call:
 
-permissions:
-  contents: write
-
 jobs:
   lint-fix:
     if: github.repository == 'YuriSilenok/lern_tg_bot'
