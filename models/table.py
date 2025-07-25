@@ -9,4 +9,5 @@ class Table(Model):
 
     class Meta:
         """Определяем коннект моделям"""
+
         database = db
