@@ -4,16 +4,18 @@ from typing import Any, Dict, List
 from models import Course, course
 from models.user import User
 
+
 def add_course(name: str, user_tg_id: int) -> dict:
     """Создает курс для пользователя"""
 
     course, created = Course.get_or_create(
-        owner=User.get_or_none(tg_id=user_tg_id),
-        name=name
+        owner=User.get_or_none(tg_id=user_tg_id), name=name
     )
 
     if not created:
-        raise ValueError(f"Курс с названием '{name}' Вами уже ранее создавался.")
+        raise ValueError(
+            f"Курс с названием '{name}' Вами уже ранее создавался."
+        )
 
     return dict(course)
 

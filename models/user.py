@@ -13,8 +13,8 @@ class User(Table):
     fio = CharField(null=True)
 
     def __iter__(self):
-        yield 'tg_id', self.tg_id
-        yield 'username', self.username
-        yield 'first_name', self.first_name
-        yield 'last_name', self.last_name
-        yield 'fio', self.fio
+        yield "tg_id", self.tg_id
+        yield "username", self.username
+        yield "first_name", self.first_name
+        yield "last_name", self.last_name
+        yield "fio", self.fio

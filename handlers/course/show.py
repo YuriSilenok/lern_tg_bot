@@ -12,9 +12,10 @@ from states.course.add import AddCourseState
 
 router = Router()
 
+
 @router.message(
-        F.text == 'Мои курсы',
-        IsPermission(permission_name="Мои курсы"),
+    F.text == "Мои курсы",
+    IsPermission(permission_name="Мои курсы"),
 )
 async def show_courses_handler(message: Message, state: FSMContext):
     """Обработчик сообщения Мои курсы"""
@@ -24,10 +25,9 @@ async def show_courses_handler(message: Message, state: FSMContext):
             text="Ваши курсы",
             reply_markup=keyboards.course.get_kb(
                 user_tg_id=message.from_user.id
-            )
+            ),
         )
     except TelegramBadRequest as ex:
-        print('show_courses_handler', message.from_user.id, ex)
+        print("show_courses_handler", message.from_user.id, ex)
     except ValueError as ex:
         await message.answer(text=ex)
-

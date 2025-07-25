@@ -18,12 +18,12 @@ async def start_cmd(message: Message):
     try:
         await message.answer(
             text=(
-                'Вы запустили бота для дистанционного изучения '
-                'программирования'
+                "Вы запустили бота для дистанционного изучения "
+                "программирования"
             ),
-            reply_markup=get_keyboard(user_tg_id=message.from_user.id)
+            reply_markup=get_keyboard(user_tg_id=message.from_user.id),
         )
     except TelegramBadRequest as ex:
-        print('add_course_handler', message.from_user.id, ex)
+        print("add_course_handler", message.from_user.id, ex)
     except ValueError as ex:
         await message.answer(text=ex)
