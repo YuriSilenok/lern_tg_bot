@@ -31,7 +31,7 @@ jobs:
         pip install flake8 pylint
 
     - name: Run flake8
-      run: flake8 --config=pyproject.toml .
+      run: flake8 .
 
     - name: Run pylint
       run: pylint $(find . -name "*.py" ! -path "./venv/*")
