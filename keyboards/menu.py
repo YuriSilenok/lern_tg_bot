@@ -1,3 +1,5 @@
+"""Плавиатуры с меню для пользователя"""
+
 from aiogram.types import KeyboardButton, ReplyKeyboardMarkup
 
 from filters.permission import IsPermission

@@ -1,3 +1,5 @@
+"""Клавиатуры для курсов"""
+
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 from models.course import Course

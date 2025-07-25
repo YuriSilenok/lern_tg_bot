@@ -1,3 +1,5 @@
+"""Добавление роутеров"""
+
 from aiogram import Dispatcher
 
 from . import add
