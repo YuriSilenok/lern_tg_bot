@@ -16,5 +16,5 @@ line-length = 79
 
 [tool.flake8]
 per-file-ignores = [
-  "*/__init__.py:F401",
+  "*/__init__.py:F401"
 ]
