@@ -11,5 +11,5 @@ jobs:
     uses: ./.github/workflows/lint-fix.yml
 
   lint-check:
-    needs: run-fix
+    needs: lint-fix
     uses: ./.github/workflows/lint-check.yml
