@@ -1,6 +1,5 @@
-from peewee import CharField, ForeignKeyField
+from peewee import CharField
 from .table import Table
-from .course import Course
 
 
 class Group(Table):

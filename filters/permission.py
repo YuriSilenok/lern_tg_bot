@@ -1,6 +1,5 @@
 """Библиотеки для проверки пользователя"""
 
-from datetime import datetime
 from aiogram.filters import BaseFilter
 from aiogram.types import Message
 from models import RolePermission, User, UserRole, Permission

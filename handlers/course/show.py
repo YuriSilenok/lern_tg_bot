@@ -1,14 +1,13 @@
 """Модуль добавления преподавателем курса"""
 
 from aiogram import Router, F
-from aiogram.types import Message, ContentType
+from aiogram.types import Message
 from aiogram.fsm.context import FSMContext
 from aiogram.exceptions import TelegramBadRequest
 
 import keyboards
 from filters.permission import IsPermission
 import keyboards.course
-from states.course.add import AddCourseState
 
 router = Router()
 

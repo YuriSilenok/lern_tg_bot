@@ -1,7 +1,7 @@
 """Модуль содержит функции работы с курсом"""
 
 from typing import Any, Dict, List
-from models import Course, course
+from models import Course
 from models.user import User
 
 

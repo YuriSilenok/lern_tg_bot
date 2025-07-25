@@ -1,5 +1,4 @@
 from peewee import CharField, IntegerField
-from pkg_resources import yield_lines
 from .table import Table
 
 

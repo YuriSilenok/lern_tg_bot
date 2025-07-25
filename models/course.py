@@ -1,4 +1,3 @@
-from typing import Any, Generator, Literal
 from peewee import CharField, ForeignKeyField
 from .table import Table
 from .user import User
