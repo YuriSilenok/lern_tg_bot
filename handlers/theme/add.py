@@ -59,9 +59,7 @@ async def input_theme_title_handler(
     IsPermission(permission_name="Добавить тему"),
     F.content_type == ContentType.TEXT,
 )
-async def input_theme_url_handler(
-    message: Message, state: FSMContext
-) -> None:
+async def input_theme_url_handler(message: Message, state: FSMContext) -> None:
     data = await state.get_data()
     course_id = data["course_id"]
     theme_title = data["theme_title"]
