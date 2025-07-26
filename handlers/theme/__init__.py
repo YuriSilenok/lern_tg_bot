@@ -2,14 +2,12 @@
 
 from aiogram import Dispatcher
 
-from . import commands
-from . import course
-from . import theme
+from . import add
+from . import show
 
 
 def add_routers(dp: Dispatcher) -> None:
     """Добавляет роутеры в диспетчер"""
 
-    commands.add_routers(dp=dp)
-    course.add_routers(dp=dp)
-    theme.add_routers(dp=dp)
+    dp.include_routers(add.router)
+    dp.include_routers(show.router)

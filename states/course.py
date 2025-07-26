@@ -1,4 +1,4 @@
-"""Состояния для добавления курса"""
+"""Состояния для действия над курсом"""
 
 from aiogram.fsm.state import StatesGroup, State
 
@@ -6,4 +6,4 @@ from aiogram.fsm.state import StatesGroup, State
 class AddCourseState(StatesGroup):
     """Состояния для добавления курса"""
 
-    input_course_name = State()
+    input_title = State()

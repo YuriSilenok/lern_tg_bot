@@ -11,3 +11,9 @@ class Theme(Table):
     course = ForeignKeyField(model=Course)
     title = CharField()
     url = CharField()
+
+    def __iter__(self):
+        yield 'id', self.id
+        yield 'course', dict(self.course),
+        yield 'title', self.title
+        yield 'url', self.url

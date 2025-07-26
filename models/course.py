@@ -9,8 +9,9 @@ class Course(Table):
     """Учебный курс"""
 
     owner = ForeignKeyField(model=User)
-    name = CharField()
+    title = CharField()
 
     def __iter__(self):
-        yield "name", self.name
+        yield "id", self.id
+        yield "title", self.title
         yield "owner", dict(self.owner)
