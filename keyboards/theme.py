@@ -11,7 +11,7 @@ def get_kb(course_id: int) -> InlineKeyboardMarkup:
     inline_keyboard = [
         [
             InlineKeyboardButton(
-                text=theme['title'], callback_data=f"theme_{theme['id']}"
+                text=theme["title"], callback_data=f"theme_{theme['id']}"
             )
         ]
         for theme in get_themes(course_id=course_id)
@@ -20,8 +20,7 @@ def get_kb(course_id: int) -> InlineKeyboardMarkup:
     inline_keyboard.append(
         [
             InlineKeyboardButton(
-                text="Добавить тему",
-                callback_data=f"add_theme_{course_id}"
+                text="Добавить тему", callback_data=f"add_theme_{course_id}"
             )
         ]
     )

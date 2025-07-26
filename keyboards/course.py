@@ -11,7 +11,7 @@ def get_kb(user_tg_id: int) -> InlineKeyboardMarkup:
     inline_keyboard = [
         [
             InlineKeyboardButton(
-                text=course['title'], callback_data=f"course_{course['id']}"
+                text=course["title"], callback_data=f"course_{course['id']}"
             )
         ]
         for course in get_courses(user_tg_id=user_tg_id)
@@ -19,7 +19,9 @@ def get_kb(user_tg_id: int) -> InlineKeyboardMarkup:
 
     inline_keyboard.append(
         [
-            InlineKeyboardButton(text="Добавить курс", callback_data=f"add_course")
+            InlineKeyboardButton(
+                text="Добавить курс", callback_data=f"add_course"
+            )
         ]
     )
 

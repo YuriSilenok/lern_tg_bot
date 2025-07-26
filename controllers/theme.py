@@ -13,7 +13,6 @@ def add_theme(course_id: int, title: str, url: str) -> dict:
     if course is None:
         raise ValueError(f"Курс с id {course_id} не найден")
 
-
     theme, created = Theme.get_or_create(
         course=course,
         title=title,
@@ -21,9 +20,7 @@ def add_theme(course_id: int, title: str, url: str) -> dict:
     )
 
     if not created:
-        raise ValueError(
-            f"Тема '{title}' Вами уже ранее создавалась."
-        )
+        raise ValueError(f"Тема '{title}' Вами уже ранее создавалась.")
 
     return dict(theme)
 
@@ -38,4 +35,3 @@ def get_themes(course_id: int) -> List[Dict[str, Any]]:
     return [
         dict(theme) for theme in Theme.select().where(Theme.course == course)
     ]
-

@@ -21,13 +21,13 @@ async def add_theme_handler(callback: CallbackQuery, state: FSMContext):
     """Обработчик кнопки Добавить тему"""
 
     try:
-        course_id = int(callback.data.split(sep='_')[-1])
+        course_id = int(callback.data.split(sep="_")[-1])
         await state.update_data(course_id=course_id)
         await callback.message.answer(text="Введите название темы")
-    
+
     except TelegramBadRequest as ex:
         print("add_theme_handler", callback.from_user.id, ex)
-    
+
     except ValueError as ex:
         await callback.answer(text=ex)
 
@@ -63,9 +63,9 @@ async def input_theme_name_handler(
 async def input_theme_name_handler(
     message: Message, state: FSMContext
 ) -> None:
-        data = await state.get_data()
-        course_id = data['course_id']
-        theme_title = data['theme_title']
-        add_theme(course_id=course_id, title=theme_title, url=message.text)
-        await message.answer(text="Тема добавлена")
-        await state.clear()
+    data = await state.get_data()
+    course_id = data["course_id"]
+    theme_title = data["theme_title"]
+    add_theme(course_id=course_id, title=theme_title, url=message.text)
+    await message.answer(text="Тема добавлена")
+    await state.clear()

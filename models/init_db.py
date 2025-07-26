@@ -31,10 +31,7 @@ def create_tables() -> None:
 def cretae_permission() -> None:
     """Создает роли, привелегии, распределяем роли и привилегии"""
 
-
-    userroles = [
-        (320720102, 'Преподаватель')
-    ]
+    userroles = [(320720102, "Преподаватель")]
 
     for tg_id, role_name in userroles:
         UserRole.get_or_create(

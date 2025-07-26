@@ -13,7 +13,7 @@ class Theme(Table):
     url = CharField()
 
     def __iter__(self):
-        yield 'id', self.id
-        yield 'course', dict(self.course),
-        yield 'title', self.title
-        yield 'url', self.url
+        yield "id", self.id
+        yield "course", dict(self.course),
+        yield "title", self.title
+        yield "url", self.url
