@@ -62,6 +62,8 @@ async def input_theme_title_handler(
 async def input_theme_url_handler(
     message: Message, state: FSMContext
 ) -> None:
+    """Обработка ввода url темы"""
+
     data = await state.get_data()
     course_id = data["course_id"]
     theme_title = data["theme_title"]

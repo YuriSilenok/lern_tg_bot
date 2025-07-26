@@ -34,7 +34,7 @@ async def add_course_handler(callback: CallbackQuery, state: FSMContext):
     IsPermission(permission_name="Добавить курс"),
     F.content_type == ContentType.TEXT,
 )
-async def input_course_name_handler(
+async def input_course_title_handler(
     message: Message, state: FSMContext
 ) -> None:
     """Обрабатываем ввод названия курса"""

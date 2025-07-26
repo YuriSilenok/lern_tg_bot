@@ -13,8 +13,13 @@ class IsPermission(BaseFilter):
             Permission.get(name=permission_name) if permission_name else None
         )
 
-    def check(self, user: User) -> bool:
+    def check(self, user_tg_id: int) -> bool:
         """Проверяет у пользователя привелегию"""
+
+        user: User = User.get_or_none(tg_id=user_tg_id)
+
+        if user is None:
+            return False
 
         permission: Permission = (
             RolePermission.select()
@@ -28,9 +33,4 @@ class IsPermission(BaseFilter):
         return permission is not None
 
     async def __call__(self, message: Message) -> bool:
-        user: User = User.get_or_none(tg_id=message.from_user.id)
-
-        if user is None:
-            return False
-
-        return self.check(user=user)
+        return self.check(user_tg_id=message.from_user.id)

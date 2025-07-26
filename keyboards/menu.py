@@ -2,14 +2,21 @@
 
 from aiogram.types import KeyboardButton, ReplyKeyboardMarkup
 
+from filters.permission import IsPermission
+
 
 def get_keyboard(user_tg_id: int):
     """Получить меню пользователя"""
+
 
     keyboard = []
     first_row = []
 
     first_row.append(KeyboardButton(text="Мои курсы"))
+
+    teacher_permition = IsPermission(permission_name='Просмотр списка групп')
+    if teacher_permition.check(user_tg_id=user_tg_id):
+        first_row.append(KeyboardButton(text="Мои группы"))
 
     keyboard.append(first_row)
 

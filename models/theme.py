@@ -14,6 +14,6 @@ class Theme(Table):
 
     def __iter__(self):
         yield "id", self.id
-        yield "course", dict(self.course),
+        yield "course", dict(self.course)
         yield "title", self.title
         yield "url", self.url
