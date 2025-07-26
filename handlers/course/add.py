@@ -7,7 +7,6 @@ from aiogram.exceptions import TelegramBadRequest
 
 from controllers.course import add_course
 from filters.permission import IsPermission
-from handlers.course.show import show_courses_handler
 from states.course import AddCourseState
 
 router = Router()

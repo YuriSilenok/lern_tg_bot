@@ -7,7 +7,6 @@ from aiogram.exceptions import TelegramBadRequest
 
 from controllers.theme import add_theme
 from filters.permission import IsPermission
-from handlers.theme.show import show_themes_handler
 from states.theme import AddThemeState
 
 router = Router()

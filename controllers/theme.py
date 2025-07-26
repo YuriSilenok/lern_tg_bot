@@ -2,7 +2,6 @@
 
 from typing import Any, Dict, List
 from models import Course
-from models import User
 from models.theme import Theme
 
 
