@@ -38,7 +38,7 @@ async def add_theme_handler(callback: CallbackQuery, state: FSMContext):
     IsPermission(permission_name="Добавить тему"),
     F.content_type == ContentType.TEXT,
 )
-async def input_theme_name_handler(
+async def input_theme_title_handler(
     message: Message, state: FSMContext
 ) -> None:
     """Обрабатываем ввод названия курса"""
@@ -59,7 +59,7 @@ async def input_theme_name_handler(
     IsPermission(permission_name="Добавить тему"),
     F.content_type == ContentType.TEXT,
 )
-async def input_theme_name_handler(
+async def input_theme_url_handler(
     message: Message, state: FSMContext
 ) -> None:
     data = await state.get_data()
