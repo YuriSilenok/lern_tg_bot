@@ -1,5 +1,2 @@
-[MASTER]
-E1101=models/.*.py
-
 [MESSAGES CONTROL]
 disable = R0903, E1133

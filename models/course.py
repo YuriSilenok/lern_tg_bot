@@ -1,5 +1,7 @@
 """Учебный курс"""
 
+# pylint: disable=E1101
+
 from peewee import CharField, ForeignKeyField
 from .table import Table
 from .user import User
