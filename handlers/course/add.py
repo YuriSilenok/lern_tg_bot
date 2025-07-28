@@ -44,7 +44,7 @@ async def input_course_title_handler(
         add_course(title=message.text, user_tg_id=message.from_user.id)
         await message.answer(
             text=f"Курс '{message.text}' создан",
-            reply_markup=get_courses_kb(user_tg_id=message.from_user.id)
+            reply_markup=get_courses_kb(user_tg_id=message.from_user.id),
         )
         await state.clear()
     except TelegramBadRequest as ex:

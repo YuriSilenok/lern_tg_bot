@@ -11,8 +11,6 @@ def get_tests(theme_id: int) -> List[Dict[str, Any]]:
 
     theme = Theme.get_or_none(id=theme_id)
     if theme is None:
-        raise ValueError(f'Тема не с id={theme_id} найдена')
-    
-    return [
-        dict(test) for test in Test.select().where(Test.theme == theme)
-    ]
+        raise ValueError(f"Тема не с id={theme_id} найдена")
+
+    return [dict(test) for test in Test.select().where(Test.theme == theme)]

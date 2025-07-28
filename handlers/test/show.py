@@ -23,6 +23,5 @@ async def show_tests_handler(callback: CallbackQuery):
 
     await callback.message.answer(
         text=f'Тесты по теме: {theme["title"]}',
-        reply_markup=get_tests_kb(theme_id=theme_id)
+        reply_markup=get_tests_kb(theme_id=theme_id),
     )
-    

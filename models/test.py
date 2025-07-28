@@ -12,6 +12,6 @@ class Test(Table):
     title = CharField()
 
     def __iter__(self):
-        yield 'id', self.id
-        yield 'theme', dict(self.theme)
-        yield 'title', self.title
+        yield "id", self.id
+        yield "theme", dict(self.theme)
+        yield "title", self.title

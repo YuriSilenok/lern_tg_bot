@@ -5,7 +5,6 @@ from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from controllers.theme import get_themes
 
 
-
 def get_theme_kb(theme_id: int) -> InlineKeyboardMarkup:
     """Возвращает кнопки для выбранной темы"""
 

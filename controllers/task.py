@@ -11,8 +11,6 @@ def get_tasks(theme_id: int) -> List[Dict[str, Any]]:
 
     theme = Theme.get_or_none(id=theme_id)
     if theme is None:
-        raise ValueError(f'Тема не с id={theme_id} найдена')
-    
-    return [
-        dict(task) for task in Task.select().where(Task.theme == theme)
-    ]
+        raise ValueError(f"Тема не с id={theme_id} найдена")
+
+    return [dict(task) for task in Task.select().where(Task.theme == theme)]

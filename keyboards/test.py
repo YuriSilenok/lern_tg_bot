@@ -11,7 +11,7 @@ def get_tests_kb(theme_id: int):
     inline_keyboard = [
         [
             InlineKeyboardButton(
-                text=test['title'], callback_data=f"test_{test['id']}"
+                text=test["title"], callback_data=f"test_{test['id']}"
             )
         ]
         for test in get_tests(theme_id=theme_id)

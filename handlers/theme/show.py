@@ -41,4 +41,4 @@ async def show_theme_menu_handler(callback: CallbackQuery) -> None:
     await callback.message.answer(
         text=f'Тема: {theme["title"]}',
         reply_markup=get_theme_kb(theme_id=theme_id),
-    )    
+    )
