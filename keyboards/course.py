@@ -1,3 +1,4 @@
+"""Клавиатуры для курса"""
 
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
