@@ -23,6 +23,5 @@ async def show_tasks_handler(callback: CallbackQuery):
 
     await callback.message.answer(
         text=f'Задачи по теме: {theme["title"]}',
-        reply_markup=get_tasks_kb(theme_id=theme_id)
+        reply_markup=get_tasks_kb(theme_id=theme_id),
     )
-    

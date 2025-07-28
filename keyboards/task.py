@@ -11,7 +11,7 @@ def get_tasks_kb(theme_id: int) -> InlineKeyboardMarkup:
     inline_keyboard = [
         [
             InlineKeyboardButton(
-                text=task['title'], callback_data=f"test_{task['id']}"
+                text=task["title"], callback_data=f"test_{task['id']}"
             )
         ]
         for task in get_tasks(theme_id=theme_id)

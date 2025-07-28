@@ -41,14 +41,15 @@ def cretae_permission() -> None:
         ("Преподаватель", "Добавить тему"),
         ("Преподаватель", "Просмотр тестов темы"),
         ("Преподаватель", "Просмотр задач темы"),
-
         ("Преподаватель", "Просмотр списка групп"),
     ]
 
     for role_name, permission_name in rolepermissions:
         models.RolePermission.get_or_create(
             role=models.Role.get_or_create(name=role_name)[0],
-            permission=models.Permission.get_or_create(name=permission_name)[0],
+            permission=models.Permission.get_or_create(name=permission_name)[
+                0
+            ],
         )
 
 

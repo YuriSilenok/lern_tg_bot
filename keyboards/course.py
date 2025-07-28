@@ -1,4 +1,3 @@
-
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 from controllers.course import get_courses
