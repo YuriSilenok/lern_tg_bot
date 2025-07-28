@@ -8,7 +8,6 @@ from aiogram.exceptions import TelegramBadRequest
 from controllers.theme import add_theme
 from filters.permission import IsPermission
 from keyboards.theme import get_themes_kb_by_teacher
-from models import theme
 from states.theme import AddThemeState
 
 router = Router()
