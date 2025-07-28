@@ -5,7 +5,7 @@ from aiogram.types import Message
 from aiogram.filters import CommandStart
 from aiogram.exceptions import TelegramBadRequest
 
-from keyboards.menu import get_keyboard
+from keyboards.menu import get_menu_kb
 
 
 router = Router()
@@ -21,7 +21,7 @@ async def start_cmd(message: Message):
                 "Вы запустили бота для дистанционного изучения "
                 "программирования"
             ),
-            reply_markup=get_keyboard(user_tg_id=message.from_user.id),
+            reply_markup=get_menu_kb(user_tg_id=message.from_user.id),
         )
     except TelegramBadRequest as ex:
         print("add_course_handler", message.from_user.id, ex)

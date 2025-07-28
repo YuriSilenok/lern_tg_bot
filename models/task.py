@@ -1,12 +1,12 @@
-"""Тест"""
+"""Модель задачи"""
 
 from peewee import ForeignKeyField, CharField
 from .table import Table
 from .theme import Theme
 
 
-class Test(Table):
-    """Тест"""
+class Task(Table):
+    """Задача"""
 
     theme = ForeignKeyField(model=Theme)
     title = CharField()

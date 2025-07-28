@@ -5,7 +5,7 @@ from aiogram.types import KeyboardButton, ReplyKeyboardMarkup
 from filters.permission import IsPermission
 
 
-def get_keyboard(user_tg_id: int):
+def get_menu_kb(user_tg_id: int) -> ReplyKeyboardMarkup:
     """Получить меню пользователя"""
 
     keyboard = []

@@ -1,11 +1,10 @@
-"""Клавиатуры для курсов"""
 
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 from controllers.course import get_courses
 
 
-def get_kb(user_tg_id: int) -> InlineKeyboardMarkup:
+def get_courses_kb(user_tg_id: int) -> InlineKeyboardMarkup:
     """Возвращает кнопки c курсами и добавить курс"""
 
     inline_keyboard = [

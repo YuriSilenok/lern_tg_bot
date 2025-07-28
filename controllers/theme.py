@@ -34,3 +34,9 @@ def get_themes(course_id: int) -> List[Dict[str, Any]]:
     return [
         dict(theme) for theme in Theme.select().where(Theme.course == course)
     ]
+
+
+def get_theme_by_id(theme_id: int) -> Dict[str, Any]:
+    """Получить тему по id"""
+
+    return dict(Theme.get_by_id(theme_id))

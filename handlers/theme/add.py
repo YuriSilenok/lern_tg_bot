@@ -7,6 +7,8 @@ from aiogram.exceptions import TelegramBadRequest
 
 from controllers.theme import add_theme
 from filters.permission import IsPermission
+from keyboards.theme import get_themes_kb_by_teacher
+from models import theme
 from states.theme import AddThemeState
 
 router = Router()
@@ -66,5 +68,8 @@ async def input_theme_url_handler(message: Message, state: FSMContext) -> None:
     course_id = data["course_id"]
     theme_title = data["theme_title"]
     add_theme(course_id=course_id, title=theme_title, url=message.text)
-    await message.answer(text="Тема добавлена")
+    await message.answer(
+        text=f"Тема '{theme_title}' добавлена",
+        reply_markup=get_themes_kb_by_teacher(course_id=course_id),
+    )
     await state.clear()

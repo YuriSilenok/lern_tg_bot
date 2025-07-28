@@ -1,31 +1,26 @@
 """Запуститье этот модуль для создания таблиц и данных"""
 
-from models.connect import db
-from models.course import Course
-from models.theme import Theme
-from models.user import User
-from models.role import Role
-from models.user_role import UserRole
-from models.permission import Permission
-from models.role_permission import RolePermission
+import models
 
 
 def create_tables() -> None:
     """СОздает таблицы и данные"""
-    db.connect()
-    db.create_tables(
+    models.db.connect()
+    models.db.create_tables(
         models=[
-            Course,
-            Theme,
-            User,
-            Role,
-            UserRole,
-            Permission,
-            RolePermission,
+            models.Course,
+            models.Test,
+            models.Theme,
+            models.User,
+            models.Role,
+            models.Task,
+            models.UserRole,
+            models.Permission,
+            models.RolePermission,
         ],
         safe=True,
     )
-    db.close()
+    models.db.close()
 
 
 def cretae_permission() -> None:
@@ -34,9 +29,9 @@ def cretae_permission() -> None:
     userroles = [(320720102, "Преподаватель")]
 
     for tg_id, role_name in userroles:
-        UserRole.get_or_create(
-            role=Role.get_or_create(name=role_name)[0],
-            user=User.get_or_create(tg_id=tg_id)[0],
+        models.UserRole.get_or_create(
+            role=models.Role.get_or_create(name=role_name)[0],
+            user=models.User.get_or_create(tg_id=tg_id)[0],
         )
 
     rolepermissions = [
@@ -44,12 +39,16 @@ def cretae_permission() -> None:
         ("Преподаватель", "Добавить курс"),
         ("Преподаватель", "Просмотр тем курса"),
         ("Преподаватель", "Добавить тему"),
+        ("Преподаватель", "Просмотр тестов темы"),
+        ("Преподаватель", "Просмотр задач темы"),
+
+        ("Преподаватель", "Просмотр списка групп"),
     ]
 
     for role_name, permission_name in rolepermissions:
-        RolePermission.get_or_create(
-            role=Role.get_or_create(name=role_name)[0],
-            permission=Permission.get_or_create(name=permission_name)[0],
+        models.RolePermission.get_or_create(
+            role=models.Role.get_or_create(name=role_name)[0],
+            permission=models.Permission.get_or_create(name=permission_name)[0],
         )
 
 

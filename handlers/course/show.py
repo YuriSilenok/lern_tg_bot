@@ -4,7 +4,7 @@ from aiogram import Router, F
 from aiogram.types import Message
 from aiogram.exceptions import TelegramBadRequest
 
-from keyboards.course import get_kb
+from keyboards.course import get_courses_kb
 from filters.permission import IsPermission
 
 
@@ -21,7 +21,7 @@ async def show_courses_handler(message: Message) -> None:
     try:
         await message.answer(
             text="Ваши курсы",
-            reply_markup=get_kb(user_tg_id=message.from_user.id),
+            reply_markup=get_courses_kb(user_tg_id=message.from_user.id),
         )
     except TelegramBadRequest as ex:
         print("show_courses_handler", message.from_user.id, ex)
