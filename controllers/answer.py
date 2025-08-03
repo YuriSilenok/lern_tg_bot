@@ -1,3 +1,5 @@
+"""Логика для ответов"""
+
 from typing import Any, Dict, List
 
 from models.answer import Answer

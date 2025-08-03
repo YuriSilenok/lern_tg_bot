@@ -1,3 +1,5 @@
+"""Логика для вопросов"""
+
 from typing import Any, Dict, List
 from models.question import Question
 from models.theme import Theme
