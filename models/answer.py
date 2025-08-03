@@ -10,4 +10,11 @@ class Answer(Table):
 
     question = ForeignKeyField(model=Question)
     text = CharField()
-    is_valid = BooleanField()
+    is_valid = BooleanField(default=False)
+
+
+    def __iter__(self):
+        yield "id", self.id
+        yield "question", dict(self.question)
+        yield "text", self.text
+        yield "is_valid", self.is_valid

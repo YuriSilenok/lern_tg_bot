@@ -20,8 +20,8 @@ def get_courses_kb(user_tg_id: int) -> InlineKeyboardMarkup:
     inline_keyboard.append(
         [
             InlineKeyboardButton(
-                text="Добавить курс", callback_data="add_course"
-            )
+                text="➕", callback_data="add_course"
+            ),
         ]
     )
 

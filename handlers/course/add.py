@@ -28,6 +28,7 @@ async def add_course_handler(callback: CallbackQuery, state: FSMContext):
         await callback.answer(text=ex)
 
     await state.set_state(state=AddCourseState.input_title)
+    await callback.message.delete()
 
 
 @router.message(

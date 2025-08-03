@@ -1,12 +1,18 @@
 """Вопрос из теста"""
 
 from peewee import CharField, ForeignKeyField
+
+from .theme import Theme
 from .table import Table
-from .test import Test
 
 
 class Question(Table):
-    """Вопрос из теста"""
+    """Вопрос по теме"""
 
-    test = ForeignKeyField(model=Test)
+    theme = ForeignKeyField(model=Theme)
     text = CharField()
+
+    def __iter__(self):
+        yield "id", self.id
+        yield "theme", dict(self.theme)
+        yield "text", self.text

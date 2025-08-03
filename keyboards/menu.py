@@ -13,7 +13,7 @@ def get_menu_kb(user_tg_id: int) -> ReplyKeyboardMarkup:
 
     first_row.append(KeyboardButton(text="Мои курсы"))
 
-    teacher_permition = IsPermission(permission_name="Просмотр списка групп")
+    teacher_permition = IsPermission(permission_name="Просмотр групп")
     if teacher_permition.check(user_tg_id=user_tg_id):
         first_row.append(KeyboardButton(text="Мои группы"))
 

@@ -14,7 +14,7 @@ router = Router()
 
 @router.callback_query(
     F.data.startswith("course_"),
-    IsPermission(permission_name="Просмотр тем курса"),
+    IsPermission(permission_name="Просмотр тем"),
 )
 async def show_themes_handler(callback: CallbackQuery) -> None:
     """Показать курс со списком тем"""
@@ -26,11 +26,12 @@ async def show_themes_handler(callback: CallbackQuery) -> None:
         text=f"Курс: {course['title']}",
         reply_markup=get_themes_kb_by_teacher(course_id=course_id),
     )
+    await callback.message.delete()
 
 
 @router.callback_query(
     F.data.startswith("theme_"),
-    IsPermission(permission_name="Просмотр тем курса"),
+    IsPermission(permission_name="Просмотр тем"),
 )
 async def show_theme_menu_handler(callback: CallbackQuery) -> None:
     """Показать меню для темы"""
@@ -42,3 +43,4 @@ async def show_theme_menu_handler(callback: CallbackQuery) -> None:
         text=f'Тема: {theme["title"]}',
         reply_markup=get_theme_kb(theme_id=theme_id),
     )
+    await callback.message.delete()

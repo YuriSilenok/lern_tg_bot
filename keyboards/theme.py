@@ -2,19 +2,23 @@
 
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-from controllers.theme import get_themes
+from controllers.theme import get_theme_by_id, get_themes
 
 
 def get_theme_kb(theme_id: int) -> InlineKeyboardMarkup:
     """Возвращает кнопки для выбранной темы"""
 
+    theme = get_theme_by_id(theme_id=theme_id)
     inline_keyboard = [
         [
             InlineKeyboardButton(
-                text="Тесты", callback_data=f"tests_theme_{theme_id}"
+                text="⏪", callback_data=f"course_{theme['course']['id']}"
             ),
             InlineKeyboardButton(
-                text="Задачи", callback_data=f"tasks_theme_{theme_id}"
+                text="❓Вопросы", callback_data=f"questions_theme_{theme_id}"
+            ),
+            InlineKeyboardButton(
+                text="📝Задачи", callback_data=f"tasks_theme_{theme_id}"
             ),
         ]
     ]
@@ -37,8 +41,11 @@ def get_themes_kb_by_teacher(course_id: int) -> InlineKeyboardMarkup:
     inline_keyboard.append(
         [
             InlineKeyboardButton(
-                text="Добавить тему", callback_data=f"add_theme_{course_id}"
-            )
+                text="⏪", callback_data="courses"
+            ),
+            InlineKeyboardButton(
+                text="➕", callback_data=f"add_theme_{course_id}"
+            ),
         ]
     )
 

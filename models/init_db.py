@@ -8,15 +8,17 @@ def create_tables() -> None:
     models.db.connect()
     models.db.create_tables(
         models=[
-            models.Course,
-            models.Test,
-            models.Theme,
             models.User,
             models.Role,
-            models.Task,
             models.UserRole,
             models.Permission,
             models.RolePermission,
+            models.Course,
+            models.Theme,
+            models.Question,
+            models.Answer,
+            models.Task,
+            models.Test,
         ],
         safe=True,
     )
@@ -35,13 +37,15 @@ def cretae_permission() -> None:
         )
 
     rolepermissions = [
-        ("Преподаватель", "Мои курсы"),
+        ("Преподаватель", "Просмотр курсов"),
+        ("Преподаватель", "Просмотр тем"),
+        ("Преподаватель", "Просмотр вопросов"),
+        ("Преподаватель", "Просмотр задач"),
+        ("Преподаватель", "Просмотр групп"),
         ("Преподаватель", "Добавить курс"),
-        ("Преподаватель", "Просмотр тем курса"),
         ("Преподаватель", "Добавить тему"),
-        ("Преподаватель", "Просмотр тестов темы"),
-        ("Преподаватель", "Просмотр задач темы"),
-        ("Преподаватель", "Просмотр списка групп"),
+        ("Преподаватель", "Добавить вопрос"),
+        ("Преподаватель", "Добавить тест"),
     ]
 
     for role_name, permission_name in rolepermissions:

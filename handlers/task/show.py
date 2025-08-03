@@ -13,7 +13,7 @@ router = Router()
 
 @router.callback_query(
     F.data.startswith("tasks_theme_"),
-    IsPermission(permission_name="Просмотр задач темы"),
+    IsPermission(permission_name="Просмотр задач"),
 )
 async def show_tasks_handler(callback: CallbackQuery):
     """Просмотр списка задач темы"""
@@ -25,3 +25,4 @@ async def show_tasks_handler(callback: CallbackQuery):
         text=f'Задачи по теме: {theme["title"]}',
         reply_markup=get_tasks_kb(theme_id=theme_id),
     )
+    await callback.message.delete()

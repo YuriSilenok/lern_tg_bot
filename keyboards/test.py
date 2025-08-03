@@ -17,4 +17,12 @@ def get_tests_kb(theme_id: int):
         for test in get_tests(theme_id=theme_id)
     ]
 
+    inline_keyboard.append(
+        [
+            InlineKeyboardButton(
+                text="Добавить тест", callback_data=f"add_test_{theme_id}"
+            )
+        ]
+    )
+
     return InlineKeyboardMarkup(inline_keyboard=inline_keyboard)
