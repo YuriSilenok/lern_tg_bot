@@ -25,4 +25,4 @@ async def show_tasks_handler(callback: CallbackQuery):
         text=f'Задачи по теме: {theme["title"]}',
         reply_markup=get_tasks_kb(theme_id=theme_id),
     )
-    await callback.message.delete()
+    await callback.message.delete_reply_markup()

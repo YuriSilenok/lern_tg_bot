@@ -10,8 +10,10 @@ class Task(Table):
 
     theme = ForeignKeyField(model=Theme)
     title = CharField()
+    url = CharField()
 
     def __iter__(self):
         yield "id", self.id
         yield "theme", dict(self.theme)
         yield "title", self.title
+        yield "url", self.url

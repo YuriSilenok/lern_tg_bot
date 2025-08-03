@@ -56,6 +56,8 @@ async def set_answer_is_valid_true_handler(
             ),
             reply_markup=get_question_kb(question_id=question["id"]),
         )
+        await state.clear()
+        await callback.message.delete_reply_markup()
 
     except TelegramBadRequest as ex:
         print("set_answer_is_valid_true_handler", callback.from_user.id, ex)
@@ -63,8 +65,6 @@ async def set_answer_is_valid_true_handler(
     except ValueError as ex:
         await callback.answer(text=ex)
 
-    await state.clear()
-    await callback.message.delete()
 
 
 @router.callback_query(
@@ -88,6 +88,8 @@ async def set_answer_is_valid_false_handler(
             ),
             reply_markup=get_question_kb(question_id=question["id"]),
         )
+        await state.clear()
+        await callback.message.delete_reply_markup()
 
     except TelegramBadRequest as ex:
         print("set_answer_is_valid_false_handler", callback.from_user.id, ex)
@@ -95,8 +97,6 @@ async def set_answer_is_valid_false_handler(
     except ValueError as ex:
         await callback.answer(text=ex)
 
-    await state.clear()
-    await callback.message.delete()
 
 
 @router.callback_query(
@@ -112,4 +112,4 @@ async def add_answer_handler(callback: CallbackQuery, state: FSMContext):
     await state.update_data(
         question=get_question_by_id(question_id=question_id)
     )
-    await callback.message.delete()
+    await callback.message.delete_reply_markup()

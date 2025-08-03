@@ -26,7 +26,7 @@ async def show_themes_handler(callback: CallbackQuery) -> None:
         text=f"Курс: {course['title']}",
         reply_markup=get_themes_kb_by_teacher(course_id=course_id),
     )
-    await callback.message.delete()
+    await callback.message.delete_reply_markup()
 
 
 @router.callback_query(
@@ -43,4 +43,4 @@ async def show_theme_menu_handler(callback: CallbackQuery) -> None:
         text=f'Тема: {theme["title"]}',
         reply_markup=get_theme_kb(theme_id=theme_id),
     )
-    await callback.message.delete()
+    await callback.message.delete_reply_markup()

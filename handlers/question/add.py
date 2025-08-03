@@ -33,7 +33,7 @@ async def add_question_handler(callback: CallbackQuery, state: FSMContext):
         await callback.answer(text=ex)
 
     await state.set_state(state=AddQuestionState.input_text)
-    await callback.message.delete()
+    await callback.message.delete_reply_markup()
 
 
 @router.message(

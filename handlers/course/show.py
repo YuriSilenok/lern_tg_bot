@@ -45,4 +45,4 @@ async def show_courses_callback_handler(callback: CallbackQuery) -> None:
         print("show_courses_callback_handler", callback.from_user.id, ex)
     except ValueError as ex:
         await callback.answer(text=ex)
-    await callback.message.delete()
+    await callback.message.delete_reply_markup()

@@ -26,7 +26,7 @@ async def show_questions_handler(callback: CallbackQuery) -> None:
         text=f'Вопросы по теме: {theme["title"]}',
         reply_markup=get_questions_kb(theme_id=theme_id),
     )
-    await callback.message.delete()
+    await callback.message.delete_reply_markup()
 
 
 @router.callback_query(
@@ -43,4 +43,4 @@ async def show_question_handler(callback: CallbackQuery) -> None:
         text=f'Варианты ответов на вопрос: {question["text"]}',
         reply_markup=get_question_kb(question_id=question_id),
     )
-    await callback.message.delete()
+    await callback.message.delete_reply_markup()

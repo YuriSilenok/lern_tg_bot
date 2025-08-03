@@ -25,4 +25,4 @@ async def show_answer_handler(callback: CallbackQuery) -> None:
         text=f"Вариант ответа: {answer['text']}",
         reply_markup=get_answer_kb(answer_id=answer_id),
     )
-    await callback.message.delete()
+    await callback.message.delete_reply_markup()

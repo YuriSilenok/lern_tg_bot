@@ -32,7 +32,7 @@ async def add_theme_handler(callback: CallbackQuery, state: FSMContext):
         await callback.answer(text=ex)
 
     await state.set_state(state=AddThemeState.input_title)
-    await callback.message.delete()
+    await callback.message.delete_reply_markup()
 
 
 @router.message(
