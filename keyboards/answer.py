@@ -2,7 +2,7 @@
 
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-from controllers.answer import get_answer_by_id, get_answers
+from controllers.answer import get_answer_by_id
 
 
 def get_answer_kb(answer_id: int) -> InlineKeyboardMarkup:

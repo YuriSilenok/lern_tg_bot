@@ -1,20 +1,15 @@
 """Модуль добавления преподавателем темы в курс"""
 
-from os import stat
 from aiogram import Router, F
 from aiogram.types import Message, CallbackQuery, ContentType
 from aiogram.fsm.context import FSMContext
 from aiogram.exceptions import TelegramBadRequest
 
-from controllers.answer import add_answer
 from controllers.question import add_question
-from controllers.theme import add_theme
 from filters.permission import IsPermission
 from keyboards.question import get_question_kb
-from keyboards.theme import get_themes_kb_by_teacher
 from states.answer import AddAnswerState
 from states.question import AddQuestionState
-from states.theme import AddThemeState
 
 router = Router()
 
@@ -46,15 +41,17 @@ async def add_question_handler(callback: CallbackQuery, state: FSMContext):
     IsPermission(permission_name="Добавить вопрос"),
     F.content_type == ContentType.TEXT,
 )
-async def input_question_text_handler(message: Message, state: FSMContext) -> None:
+async def input_question_text_handler(
+    message: Message, state: FSMContext
+) -> None:
     """Обработка ввода текста вопроса"""
 
     try:
         data = await state.get_data()
         theme_id = data["theme_id"]
         question = add_question(theme_id=theme_id, text=message.text)
-        data['question'] = question
-        data['answers'] = []
+        data["question"] = question
+        data["answers"] = []
         await message.answer(
             text=(
                 f"Вопрос с текстом '{question['text']}' добавлен. "

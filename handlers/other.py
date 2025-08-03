@@ -6,6 +6,7 @@ from aiogram.types import CallbackQuery
 
 router = Router()
 
+
 @router.callback_query()
 async def other_callback_handler(callback: CallbackQuery):
     """Обработчик необработаных нажатий кнопок"""

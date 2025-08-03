@@ -40,9 +40,7 @@ def get_themes_kb_by_teacher(course_id: int) -> InlineKeyboardMarkup:
 
     inline_keyboard.append(
         [
-            InlineKeyboardButton(
-                text="⏪", callback_data="courses"
-            ),
+            InlineKeyboardButton(text="⏪", callback_data="courses"),
             InlineKeyboardButton(
                 text="➕", callback_data=f"add_theme_{course_id}"
             ),

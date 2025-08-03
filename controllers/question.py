@@ -19,6 +19,7 @@ def add_question(theme_id: int, text: str) -> dict:
 
     return dict(question)
 
+
 def get_questions(theme_id: int) -> List[Dict[str, Any]]:
     """Получает список вопросов для темы"""
 
@@ -27,8 +28,10 @@ def get_questions(theme_id: int) -> List[Dict[str, Any]]:
         raise ValueError(f"Темы с id={theme_id} не найдено")
 
     return [
-        dict(question) for question in Question.select().where(Question.theme == theme)
+        dict(question)
+        for question in Question.select().where(Question.theme == theme)
     ]
+
 
 def get_question_by_id(question_id: int) -> Dict[str, Any]:
     """Получить вопрос по ид"""

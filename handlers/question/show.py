@@ -7,7 +7,6 @@ from controllers.question import get_question_by_id
 from controllers.theme import get_theme_by_id
 from filters.permission import IsPermission
 from keyboards.question import get_question_kb, get_questions_kb
-from keyboards.test import get_tests_kb
 
 
 router = Router()
