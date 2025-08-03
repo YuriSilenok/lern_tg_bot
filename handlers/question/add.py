@@ -1,20 +1,15 @@
 """Модуль добавления преподавателем темы в курс"""
 
-from os import stat
 from aiogram import Router, F
 from aiogram.types import Message, CallbackQuery, ContentType
 from aiogram.fsm.context import FSMContext
 from aiogram.exceptions import TelegramBadRequest
 
-from controllers.answer import add_answer
 from controllers.question import add_question
-from controllers.theme import add_theme
 from filters.permission import IsPermission
 from keyboards.question import get_question_kb
-from keyboards.theme import get_themes_kb_by_teacher
 from states.answer import AddAnswerState
 from states.question import AddQuestionState
-from states.theme import AddThemeState
 
 router = Router()
 

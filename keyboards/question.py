@@ -3,7 +3,6 @@
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 from controllers.answer import get_answers
-from controllers.course import get_courses
 from controllers.question import get_question_by_id, get_questions
 
 

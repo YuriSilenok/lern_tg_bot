@@ -4,13 +4,8 @@ from aiogram import Router, F
 from aiogram.types import CallbackQuery
 
 from controllers.answer import get_answer_by_id
-from controllers.course import get_course_by_id
-from controllers.question import get_question_by_id
-from controllers.theme import get_theme_by_id
 from filters.permission import IsPermission
 from keyboards.answer import get_answer_kb
-from keyboards.question import get_question_kb
-from keyboards.theme import get_themes_kb_by_teacher, get_theme_kb
 
 
 router = Router()

@@ -46,7 +46,7 @@ def set_answer(
     if text:
         answer.text = text
 
-    if not is_valid is None:
+    if is_valid is not None:
         answer.is_valid = is_valid
 
     answer.save()
