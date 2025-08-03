@@ -46,15 +46,17 @@ async def add_question_handler(callback: CallbackQuery, state: FSMContext):
     IsPermission(permission_name="Добавить вопрос"),
     F.content_type == ContentType.TEXT,
 )
-async def input_question_text_handler(message: Message, state: FSMContext) -> None:
+async def input_question_text_handler(
+    message: Message, state: FSMContext
+) -> None:
     """Обработка ввода текста вопроса"""
 
     try:
         data = await state.get_data()
         theme_id = data["theme_id"]
         question = add_question(theme_id=theme_id, text=message.text)
-        data['question'] = question
-        data['answers'] = []
+        data["question"] = question
+        data["answers"] = []
         await message.answer(
             text=(
                 f"Вопрос с текстом '{question['text']}' добавлен. "

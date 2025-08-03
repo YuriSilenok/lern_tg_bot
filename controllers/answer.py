@@ -12,11 +12,14 @@ def get_answers(question_id: int) -> List[Dict[str, Any]]:
         raise ValueError(f"Вопрос с id={question_id} не найден")
 
     return [
-        dict(answer) for answer in Answer.select().where(Answer.question == question)
+        dict(answer)
+        for answer in Answer.select().where(Answer.question == question)
     ]
 
 
-def add_answer(question_id: int, text: str, is_valid: bool = False) -> Dict[str, Any]:
+def add_answer(
+    question_id: int, text: str, is_valid: bool = False
+) -> Dict[str, Any]:
     """Добавляет вариант ответа вопросу"""
 
     answer, created = Answer.get_or_create(
@@ -31,19 +34,21 @@ def add_answer(question_id: int, text: str, is_valid: bool = False) -> Dict[str,
     return dict(answer)
 
 
-def set_answer(answer_id: int, text: str = None, is_valid: bool = None) -> Dict[str, Any]:
+def set_answer(
+    answer_id: int, text: str = None, is_valid: bool = None
+) -> Dict[str, Any]:
     """Обновляет атрибуты объекта"""
 
     answer: Answer = Answer.get_or_none(id=answer_id)
     if answer is None:
         raise ValueError(f"Вариант ответа с id={answer_id} не найден")
-    
+
     if text:
         answer.text = text
-    
+
     if not is_valid is None:
         answer.is_valid = is_valid
-    
+
     answer.save()
 
     return dict(answer)
