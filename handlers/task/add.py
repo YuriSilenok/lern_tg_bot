@@ -16,9 +16,10 @@ from states.task import AddTaskState
 
 router = Router()
 
+
 @router.callback_query(
     F.data.startswith("add_task_"),
-    IsPermission(permission_name="Добавить задачу")
+    IsPermission(permission_name="Добавить задачу"),
 )
 async def add_task_handler(callback: CallbackQuery, state: FSMContext):
     """Обработка добавления задачи в тему"""
@@ -55,6 +56,7 @@ async def input_task_title_handler(message: Message, state: FSMContext):
 
     except ValueError as ex:
         await message.answer(text=ex)
+
 
 @router.message(
     AddTaskState.input_url,

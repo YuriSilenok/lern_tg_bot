@@ -66,7 +66,6 @@ async def set_answer_is_valid_true_handler(
         await callback.answer(text=ex)
 
 
-
 @router.callback_query(
     F.data.startswith("answer_no_"),
     IsPermission(permission_name="Добавить вопрос"),
@@ -96,7 +95,6 @@ async def set_answer_is_valid_false_handler(
 
     except ValueError as ex:
         await callback.answer(text=ex)
-
 
 
 @router.callback_query(
