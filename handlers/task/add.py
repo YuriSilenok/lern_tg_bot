@@ -5,13 +5,9 @@ from aiogram.types import Message, CallbackQuery, ContentType
 from aiogram.fsm.context import FSMContext
 from aiogram.exceptions import TelegramBadRequest
 
-from controllers.question import add_question
 from controllers.task import add_task
 from filters.permission import IsPermission
-from keyboards.question import get_question_kb
 from keyboards.task import get_tasks_kb
-from states.answer import AddAnswerState
-from states.question import AddQuestionState
 from states.task import AddTaskState
 
 router = Router()
