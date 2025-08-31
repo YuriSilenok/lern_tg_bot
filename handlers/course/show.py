@@ -4,7 +4,6 @@ from aiogram import Router, F
 from aiogram.types import Message, CallbackQuery
 from aiogram.exceptions import TelegramBadRequest
 
-from filters.role import IsRole
 from keyboards.course import get_courses_kb
 from keyboards.course import get_all_courses_kb
 from filters.permission import IsPermission

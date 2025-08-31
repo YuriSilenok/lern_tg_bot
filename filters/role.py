@@ -9,9 +9,7 @@ class IsRole(BaseFilter):
     """Проверяет наличие привелегии у пользователя"""
 
     def __init__(self, role_name: str = None) -> None:
-        self.role = (
-            Role.get(name=role_name) if role_name else None
-        )
+        self.role = Role.get(name=role_name) if role_name else None
 
     def check(self, user_tg_id: int) -> bool:
         """Проверяет у пользователя привелегию"""
@@ -23,10 +21,7 @@ class IsRole(BaseFilter):
 
         role: Role = (
             UserRole.select()
-            .where(
-                (UserRole.user == user)
-                & (UserRole.role == self.role)
-            )
+            .where((UserRole.user == user) & (UserRole.role == self.role))
             .first()
         )
         return role is not None
