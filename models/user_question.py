@@ -13,3 +13,9 @@ class UserQuestion(Table):
     user = ForeignKeyField(model=User)
     question = ForeignKeyField(model=Question)
     score = IntegerField(default=0)
+
+    def __iter__(self):
+        yield "id", self.id
+        yield "user", dict(self.user)
+        yield "question", dict(self.question)
+        yield "score", self.score

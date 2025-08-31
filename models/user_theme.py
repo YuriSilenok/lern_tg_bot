@@ -12,3 +12,8 @@ class UserTheme(Table):
 
     user = ForeignKeyField(model=User)
     theme = ForeignKeyField(model=Theme)
+
+    def __iter__(self):
+        yield "id", self.id
+        yield "user", dict(self.user)
+        yield "theme", dict(self.theme)

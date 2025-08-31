@@ -11,3 +11,8 @@ class RolePermission(Table):
 
     role = ForeignKeyField(model=Role)
     permission = ForeignKeyField(model=Permission)
+
+    def __iter__(self):
+        yield "id", self.id
+        yield "role", dict(self.role)
+        yield "permission", dict(self.permission)

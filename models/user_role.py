@@ -11,3 +11,8 @@ class UserRole(Table):
 
     user = ForeignKeyField(model=User)
     role = ForeignKeyField(model=Role)
+
+    def __iter__(self):
+        yield "id", self.id
+        yield "user", dict(self.user)
+        yield "role", dict(self.role)
