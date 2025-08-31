@@ -7,7 +7,7 @@ from controllers.course import get_all_courses
 from filters.permission import IsPermission
 
 
-def get_courses_kb(user_tg_id: int) -> InlineKeyboardMarkup:
+def get_my_courses_kb(user_tg_id: int) -> InlineKeyboardMarkup:
     """Возвращает кнопки c курсами и добавить курс"""
 
     inline_keyboard = [

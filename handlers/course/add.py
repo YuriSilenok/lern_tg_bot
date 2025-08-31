@@ -7,7 +7,7 @@ from aiogram.exceptions import TelegramBadRequest
 
 from controllers.course import add_course
 from filters.permission import IsPermission
-from keyboards.course import get_courses_kb
+from keyboards.course import get_my_courses_kb
 from states.course import AddCourseState
 
 router = Router()
@@ -45,7 +45,7 @@ async def input_course_title_handler(
         add_course(title=message.text, user_tg_id=message.from_user.id)
         await message.answer(
             text=f"Курс '{message.text}' создан",
-            reply_markup=get_courses_kb(user_tg_id=message.from_user.id),
+            reply_markup=get_my_courses_kb(user_tg_id=message.from_user.id),
         )
         await state.clear()
     except TelegramBadRequest as ex:
