@@ -5,9 +5,7 @@ from peewee import ForeignKeyField, IntegerField
 from models.question import Question
 from models.test import Test
 
-from .user import User
 from .table import Table
-from .theme import Theme
 
 
 class TestQuestion(Table):

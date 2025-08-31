@@ -1,12 +1,10 @@
 """Модуль содержит логику для тестов"""
 
-from typing import Any, Dict, List
 
 from peewee import fn, JOIN
 
 from models.course import Course
 from models.question import Question
-from models.test import Test
 from models.theme import Theme
 from models.user import User
 from models.user_question import UserQuestion
@@ -25,7 +23,7 @@ def generate_test(user_tg_id: int, course_id: int):
         raise ValueError(f"Курс с id={course_id} не найден")
 
     # получаем список вопросов из освоеных пользователем тем по курсу
-    done_questions = list(
+    list(
         Question.select(
             Question.id,
             Question.text,
@@ -68,7 +66,7 @@ def generate_test(user_tg_id: int, course_id: int):
         )
         .first()
     )
-    wip_questions = list(
+    list(
         Question.select().where(Question.theme == wip_theme.id)
     )
 

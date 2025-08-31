@@ -7,7 +7,6 @@ from models import course
 
 from .user import User
 from .table import Table
-from .theme import Theme
 
 
 class Test(Table):
