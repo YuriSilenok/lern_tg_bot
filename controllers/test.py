@@ -1,6 +1,5 @@
 """Модуль содержит логику для тестов"""
 
-
 from peewee import fn, JOIN
 
 from models.course import Course
@@ -66,9 +65,7 @@ def generate_test(user_tg_id: int, course_id: int):
         )
         .first()
     )
-    list(
-        Question.select().where(Question.theme == wip_theme.id)
-    )
+    list(Question.select().where(Question.theme == wip_theme.id))
 
 
 if __name__ == "__main__":
