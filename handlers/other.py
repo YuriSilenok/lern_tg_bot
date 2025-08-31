@@ -13,6 +13,7 @@ async def other_callback_handler(callback: CallbackQuery):
 
     await callback.answer(text=callback.data)
 
+
 @router.message()
 async def other_callback_handler(message: Message):
     """Обработчик необработаных нажатий кнопок"""

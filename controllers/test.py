@@ -23,49 +23,43 @@ def generate_test(user_tg_id: int, course_id: int):
     course = Course.get_or_none(id=course_id)
     if course is None:
         raise ValueError(f"Курс с id={course_id} не найден")
-    
+
     # получаем список вопросов из освоеных пользователем тем по курсу
     done_questions = list(
         Question.select(
             Question.id,
             Question.text,
-            fn.COALESCE(UserQuestion.score, 0).alias('score')
+            fn.COALESCE(UserQuestion.score, 0).alias("score"),
         )
         .join(
             UserTheme,
             on=(
-                (Question.theme == UserTheme.theme) 
+                (Question.theme == UserTheme.theme)
                 & (UserTheme.user == user.id)
-            )
+            ),
         )
         .join(
-            Theme,
-            on=(
-                (Theme.id == UserTheme)
-                & (Theme.course == course.id)
-            )
+            Theme, on=((Theme.id == UserTheme) & (Theme.course == course.id))
         )
         .join(
             UserQuestion,
-            JOIN.LEFT_OUTER, on=(
-                (Question.id == UserQuestion.question_id) 
+            JOIN.LEFT_OUTER,
+            on=(
+                (Question.id == UserQuestion.question_id)
                 & (UserQuestion.user_id == user.id)
-            )
+            ),
         )
-        .order_by(
-            fn.COALESCE(UserQuestion.score, 0).alias('score')
-        )
+        .order_by(fn.COALESCE(UserQuestion.score, 0).alias("score"))
     )
-
-
-
 
     # ближайшая неосвоенная тема
     wip_theme = (
         Theme.select()
         .where(
-            (Theme.course == course.id) &
-            (~Theme.id << (
+            (Theme.course == course.id)
+            & (
+                ~Theme.id
+                << (
                     Theme.select(Theme.id)
                     .join(UserTheme, on=Theme.id == UserTheme.theme)
                     .where(Theme.course == course.id)
@@ -79,5 +73,5 @@ def generate_test(user_tg_id: int, course_id: int):
     )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     generate_test(user_tg_id=320720102, course_id=1)

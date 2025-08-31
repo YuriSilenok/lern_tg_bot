@@ -15,7 +15,7 @@ class TestQuestion(Table):
 
     test = ForeignKeyField(model=Test)
     question = ForeignKeyField(model=Question)
-    answer = IntegerField(default=0) # 0 - не отвечал, 1 - верно, -1 ошибка
+    answer = IntegerField(default=0)  # 0 - не отвечал, 1 - верно, -1 ошибка
 
     def __iter__(self):
         yield "id", self.id
