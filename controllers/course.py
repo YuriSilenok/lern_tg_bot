@@ -36,3 +36,8 @@ def get_courses(user_tg_id: int) -> List[Dict[str, Any]]:
     return [
         dict(course) for course in Course.select().where(Course.owner == user)
     ]
+
+
+def get_all_courses() -> List[Dict[str, Any]]:
+    """Вернуть список всех курсов"""
+    return [dict(course) for course in Course.select()]

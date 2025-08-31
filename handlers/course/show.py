@@ -4,11 +4,30 @@ from aiogram import Router, F
 from aiogram.types import Message, CallbackQuery
 from aiogram.exceptions import TelegramBadRequest
 
+from filters.role import IsRole
 from keyboards.course import get_courses_kb
+from keyboards.course import get_all_courses_kb
 from filters.permission import IsPermission
 
 
 router = Router()
+
+
+@router.message(
+    F.text == "Все курсы",
+    IsPermission(permission_name="Просмотр всех курсов"),
+)
+async def show_all_courses_message_handler(message: Message) -> None:
+    """Обработчик сообщения Все курсы"""
+    try:
+        await message.answer(
+            text="Все курсы",
+            reply_markup=get_all_courses_kb(),
+        )
+    except TelegramBadRequest as ex:
+        print("show_all_courses_message_handler", message.from_user.id, ex)
+    except ValueError as ex:
+        await message.answer(text=ex)
 
 
 @router.message(

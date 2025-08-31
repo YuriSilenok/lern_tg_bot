@@ -10,5 +10,8 @@ from .answer import Answer
 from .course import Course
 from .question import Question
 from .user_role import UserRole
+from .user_theme import UserTheme
 from .permission import Permission
+from .user_question import UserQuestion
+from .test_question import TestQuestion
 from .role_permission import RolePermission
