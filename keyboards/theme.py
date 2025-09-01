@@ -2,7 +2,11 @@
 
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-from controllers.course import get_subscription, user_is_owner, user_is_subscription
+from controllers.course import (
+    get_subscription,
+    user_is_owner,
+    user_is_subscription,
+)
 from controllers.theme import get_theme_by_id, get_themes
 from filters.permission import IsPermission
 
@@ -41,12 +45,12 @@ def get_themes_kb(course_id: int, user_tg_id: int) -> InlineKeyboardMarkup:
         for theme in get_themes(course_id=course_id)
     ]
 
-    last_row = [
-        InlineKeyboardButton(text="⏪", callback_data="courses")
-    ]
+    last_row = [InlineKeyboardButton(text="⏪", callback_data="courses")]
 
     # Если у пользователя есть привелегия добавлять тему и он автор курса
-    is_permission = IsPermission(permission_name="Добавить тему").check(user_tg_id=user_tg_id) 
+    is_permission = IsPermission(permission_name="Добавить тему").check(
+        user_tg_id=user_tg_id
+    )
     is_owner = user_is_owner(course_id=course_id, user_tg_id=user_tg_id)
     if is_permission and is_owner:
         last_row.append(
@@ -60,16 +64,18 @@ def get_themes_kb(course_id: int, user_tg_id: int) -> InlineKeyboardMarkup:
     if subscription:
         last_row.append(
             InlineKeyboardButton(
-                text="🔕", callback_data=f"unsubscribe_{subscription['id']}",
+                text="🔕",
+                callback_data=f"unsubscribe_{subscription['id']}",
             )
         )
     else:
         last_row.append(
             InlineKeyboardButton(
-                text="🔔", callback_data=f"subscribe_{course_id}",
+                text="🔔",
+                callback_data=f"subscribe_{course_id}",
             )
         )
-    
+
     inline_keyboard.append(last_row)
-    
+
     return InlineKeyboardMarkup(inline_keyboard=inline_keyboard)

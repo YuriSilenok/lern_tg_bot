@@ -70,6 +70,8 @@ async def input_theme_url_handler(message: Message, state: FSMContext) -> None:
     add_theme(course_id=course_id, title=theme_title, url=message.text)
     await message.answer(
         text=f"Тема '{theme_title}' добавлена",
-        reply_markup=get_themes_kb(course_id=course_id, user_tg_id=message.from_user.id),
+        reply_markup=get_themes_kb(
+            course_id=course_id, user_tg_id=message.from_user.id
+        ),
     )
     await state.clear()

@@ -24,7 +24,9 @@ async def show_themes_handler(callback: CallbackQuery) -> None:
 
     await callback.message.answer(
         text=f"Курс: {course['title']}",
-        reply_markup=get_themes_kb(course_id=course_id, user_tg_id=callback.from_user.id),
+        reply_markup=get_themes_kb(
+            course_id=course_id, user_tg_id=callback.from_user.id
+        ),
     )
     await callback.message.delete_reply_markup()
 

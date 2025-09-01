@@ -11,12 +11,11 @@ def get_my_courses_kb(user_tg_id: int) -> InlineKeyboardMarkup:
     """Возвращает кнопки для пункта меню Мои курсы"""
 
     courses = get_courses_by_owner(user_tg_id=user_tg_id)
-    
+
     # дополняем подписками на курс но без дубликатов
     for course in get_subscription(user_tg_id=user_tg_id):
-        if len(filter(lambda c: c['id'] == course['id'], courses)) == 0:
+        if len(filter(lambda c: c["id"] == course["id"], courses)) == 0:
             courses.append(course)
-    
 
     inline_keyboard = [
         [
