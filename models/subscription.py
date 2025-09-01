@@ -1,6 +1,6 @@
 """Модуль подписки на курс"""
 
-from peewee import ForeignKeyField, CharField
+from peewee import ForeignKeyField
 
 from models.course import Course
 from models.user import User
