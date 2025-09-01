@@ -21,7 +21,7 @@ class IsPermission(BaseFilter):
         if user is None:
             return False
 
-        permission: Permission = (
+        role_permission: RolePermission = (
             RolePermission.select()
             .join(UserRole, on=UserRole.role == RolePermission.role)
             .where(
@@ -30,7 +30,7 @@ class IsPermission(BaseFilter):
             )
             .first()
         )
-        return permission is not None
+        return role_permission is not None
 
     async def __call__(self, message: Message) -> bool:
         return self.check(user_tg_id=message.from_user.id)

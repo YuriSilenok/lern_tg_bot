@@ -1,5 +1,6 @@
 """Запуститье этот модуль для создания таблиц и данных"""
 
+from pyexpat import model
 import models
 
 
@@ -22,6 +23,7 @@ def create_tables() -> None:
             models.TestQuestion,
             models.UserQuestion,
             models.RolePermission,
+            models.Subscription,
         ],
         safe=True,
     )

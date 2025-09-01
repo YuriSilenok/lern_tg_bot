@@ -12,6 +12,7 @@ from .question import Question
 from .user_role import UserRole
 from .user_theme import UserTheme
 from .permission import Permission
+from .subscription import Subscription
 from .user_question import UserQuestion
 from .test_question import TestQuestion
 from .role_permission import RolePermission

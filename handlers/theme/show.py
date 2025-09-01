@@ -6,7 +6,7 @@ from aiogram.types import CallbackQuery
 from controllers.course import get_course_by_id
 from controllers.theme import get_theme_by_id
 from filters.permission import IsPermission
-from keyboards.theme import get_themes_kb_by_teacher, get_theme_kb
+from keyboards.theme import get_themes_kb, get_theme_kb
 
 
 router = Router()
@@ -24,7 +24,7 @@ async def show_themes_handler(callback: CallbackQuery) -> None:
 
     await callback.message.answer(
         text=f"Курс: {course['title']}",
-        reply_markup=get_themes_kb_by_teacher(course_id=course_id),
+        reply_markup=get_themes_kb(course_id=course_id, user_tg_id=callback.from_user.id),
     )
     await callback.message.delete_reply_markup()
 
