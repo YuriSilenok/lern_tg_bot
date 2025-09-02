@@ -10,4 +10,3 @@ from filters.permission import IsPermission
 
 
 router = Router()
-

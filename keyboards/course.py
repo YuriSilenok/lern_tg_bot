@@ -2,7 +2,11 @@
 
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-from controllers.course import get_courses_by_owner, get_subscription, user_is_owner
+from controllers.course import (
+    get_courses_by_owner,
+    get_subscription,
+    user_is_owner,
+)
 from controllers.course import get_all_courses
 from controllers.theme import get_themes
 from filters.permission import IsPermission

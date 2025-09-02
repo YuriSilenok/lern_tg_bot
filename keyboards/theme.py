@@ -29,4 +29,3 @@ def get_theme_kb(theme_id: int) -> InlineKeyboardMarkup:
     ]
 
     return InlineKeyboardMarkup(inline_keyboard=inline_keyboard)
-
