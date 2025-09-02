@@ -2,12 +2,7 @@
 
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-from controllers.course import (
-    get_subscription,
-    user_is_owner,
-)
-from controllers.theme import get_theme_by_id, get_themes
-from filters.permission import IsPermission
+from controllers.theme import get_theme_by_id
 
 
 def get_theme_kb(theme_id: int) -> InlineKeyboardMarkup:
