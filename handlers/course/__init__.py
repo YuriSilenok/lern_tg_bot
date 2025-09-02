@@ -4,6 +4,7 @@ from aiogram import Dispatcher
 
 from . import add
 from . import show
+from . import subscription
 
 
 def add_routers(dp: Dispatcher) -> None:
@@ -11,3 +12,4 @@ def add_routers(dp: Dispatcher) -> None:
 
     dp.include_routers(add.router)
     dp.include_routers(show.router)
+    dp.include_routers(subscription.router)
